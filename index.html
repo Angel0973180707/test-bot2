@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>幸福智多星｜智慧搜索（測試）</title>
+  <meta name="theme-color" content="#8FB9A8" />
+  <meta name="description" content="家長提問 → 先安撫 → 再理解腦 → 最後給影片與工具。" />
+
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" href="./assets/icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192.png" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="dot" aria-hidden="true"></div>
+      <div>
+        <div class="title">幸福智多星</div>
+        <div class="subtitle">智慧搜索（獨立測試版）</div>
+      </div>
+    </div>
+
+    <button id="btnRefresh" class="ghost" type="button" title="重新載入館藏">
+      ↻ 更新館藏
+    </button>
+  </header>
+
+  <main class="container">
+    <section class="card hero">
+      <h1>把心先放穩，答案才會出現。</h1>
+      <p class="muted">
+        你只要用一句話描述現在的狀況（例：孩子愛尖叫／我忍不住吼他／每天都在吵）。
+        智多星會先給你一段安撫，再用腦科學幫你理解，最後給你「可立即取用」的影片與工具。
+      </p>
+
+      <div class="searchRow">
+        <input id="queryInput" type="text" inputmode="search" autocomplete="off"
+               placeholder="輸入你的問題：例如『我忍不住對孩子發火』" />
+        <button id="btnSearch" class="primary" type="button">開始匹配</button>
+      </div>
+
+      <div class="hintRow">
+        <span id="libStatus" class="pill">館藏：尚未載入</span>
+        <span id="matchStatus" class="pill ghostPill">等待提問</span>
+      </div>
+    </section>
+
+    <section id="resultArea" class="stack" hidden>
+      <section class="card">
+        <h2>① 先安撫你現在的心</h2>
+        <div id="soulText" class="content"></div>
+      </section>
+
+      <section class="card">
+        <h2>② 用腦科學理解：為什麼會這樣</h2>
+        <div id="brainText" class="content"></div>
+      </section>
+
+      <section class="card">
+        <h2>③ 推薦你「可立即取用」的影片與工具</h2>
+        <div id="recoArea" class="recoGrid"></div>
+      </section>
+
+      <section class="card">
+        <h2>思考引導（課題分離）</h2>
+        <div id="thinkText" class="content"></div>
+      </section>
+    </section>
+
+    <section id="emptyArea" class="card" hidden>
+      <h2>我有聽到你</h2>
+      <p class="content">
+        我目前還沒在館藏裡找到明確匹配，但這不代表你問得不好。
+        你可以換一種更「生活句」的描述再試一次（例如把「孩子叛逆」換成「孩子回嘴」）。
+      </p>
+      <div class="content">
+        <button id="btnTryExamples" class="ghost" type="button">試試常見例句</button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="muted small">
+        Angel PWA：任何時候停下來，都可以。只要舒服，就很好。
+      </div>
+    </footer>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
