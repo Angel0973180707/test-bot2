@@ -1,112 +1,196 @@
-:root {
-  --green-main: #8FB9A8;
-  --green-dark: #4f8f7a;
-  --green-soft: #eef5f2;
-  --card-bg: #f7faf9;
-  --text-main: #243330;
-  --text-soft: #5f6f6b;
+:root{
+  --green:#8FB9A8;
+  --green-d:#3f7f6b;
+  --bg:#ffffff;
+  --soft:#eef6f2;
+  --card:#f7fbf9;
+  --text:#1f2f2b;
+  --muted:#5e6f6a;
+  --shadow: 0 10px 24px rgba(0,0,0,.08);
 }
 
-* {
-  box-sizing: border-box;
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif;
+  background:var(--green);
+  color:var(--text);
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", sans-serif;
-  background: var(--green-main);
-  color: var(--text-main);
+.top{
+  padding:26px 18px 18px;
+  color:#fff;
 }
 
-/* ===== 頂部 ===== */
-.top {
-  padding: 32px 20px 28px;
-  color: #fff;
+.hero{
+  max-width:720px;
 }
 
-.hero h1 {
-  margin: 0;
-  font-size: 28px;
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-.subtitle {
-  margin-top: 10px;
-  line-height: 1.6;
-  opacity: 0.95;
+.brain{
+  font-size:26px;
+  line-height:1;
 }
 
-/* ===== 主區 ===== */
-main {
-  background: #fff;
-  border-radius: 28px 28px 0 0;
-  padding: 24px 20px 40px;
-  min-height: 80vh;
+h1{
+  margin:0;
+  font-size:30px;
+  letter-spacing:.5px;
 }
 
-/* ===== 輸入卡 ===== */
-.input-card {
-  background: var(--green-soft);
-  border-radius: 20px;
-  padding: 16px;
-  margin-bottom: 24px;
+.subtitle{
+  margin:14px 0 0;
+  font-size:18px;
+  line-height:1.7;
+  opacity:.96;
 }
 
-input {
-  width: 100%;
-  padding: 14px 16px;
-  font-size: 16px;
-  border-radius: 14px;
-  border: none;
-  outline: none;
-  margin-bottom: 12px;
+.soft-note{
+  margin-top:14px;
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:14px;
+  background:rgba(255,255,255,.16);
+  backdrop-filter: blur(6px);
+  line-height:1.6;
+  font-size:14px;
+  opacity:.98;
 }
 
-button {
-  width: 100%;
-  padding: 14px;
-  font-size: 16px;
-  border-radius: 14px;
-  border: none;
-  background: var(--green-dark);
-  color: #fff;
-  cursor: pointer;
+main{
+  background:var(--bg);
+  border-radius:26px 26px 0 0;
+  padding:18px 16px 38px;
+  min-height:78vh;
 }
 
-/* ===== 回應卡片 ===== */
-.card {
-  background: var(--card-bg);
-  border-radius: 20px;
-  padding: 20px;
-  margin-top: 18px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+/* ===== 陪伴輸入卡 ===== */
+.input-card{
+  background:var(--soft);
+  border-radius:20px;
+  padding:16px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.05);
+  max-width:720px;
 }
 
-.card h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 18px;
+.label{
+  display:block;
+  font-size:14px;
+  color:var(--muted);
+  margin-bottom:10px;
 }
 
-.card p {
-  line-height: 1.7;
-  margin: 0 0 8px;
-  color: var(--text-soft);
+input{
+  width:100%;
+  padding:14px 14px;
+  border-radius:16px;
+  border:1px solid rgba(0,0,0,.08);
+  outline:none;
+  font-size:16px;
+  background:#fff;
 }
 
-/* ===== 工具按鈕 ===== */
-.card a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 14px;
-  background: #fff;
-  border-radius: 12px;
-  text-decoration: none;
-  color: var(--green-dark);
-  font-weight: 500;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+input:focus{
+  border-color: rgba(63,127,107,.55);
+  box-shadow: 0 0 0 4px rgba(63,127,107,.12);
 }
 
-/* ===== 找不到時 ===== */
-.card.soft {
-  background: #fff7f7;
+.primary{
+  width:100%;
+  margin-top:12px;
+  padding:14px 14px;
+  border:none;
+  border-radius:16px;
+  background:linear-gradient(180deg, #4b8b76, var(--green-d));
+  color:#fff;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow: var(--shadow);
+}
+
+.primary:active{
+  transform: translateY(1px);
+}
+
+/* ===== 快速句子 chips ===== */
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:14px;
+}
+
+.chip{
+  border:none;
+  background:#fff;
+  color:var(--green-d);
+  padding:10px 12px;
+  border-radius:999px;
+  font-size:14px;
+  box-shadow: 0 6px 14px rgba(0,0,0,.06);
+  cursor:pointer;
+}
+
+.chip:active{
+  transform: translateY(1px);
+}
+
+.hint{
+  margin:12px 0 0;
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* ===== 結果卡片 ===== */
+#result{
+  max-width:720px;
+}
+
+.card{
+  margin-top:16px;
+  padding:18px;
+  border-radius:20px;
+  background:var(--card);
+  box-shadow: 0 8px 18px rgba(0,0,0,.05);
+}
+
+.card h3{
+  margin:0 0 10px;
+  font-size:18px;
+}
+
+.card p{
+  margin:0 0 10px;
+  line-height:1.75;
+  color:var(--muted);
+}
+
+.card a{
+  display:inline-block;
+  margin-top:8px;
+  padding:11px 14px;
+  border-radius:14px;
+  background:#fff;
+  color:var(--green-d);
+  text-decoration:none;
+  font-weight:600;
+  box-shadow: 0 8px 18px rgba(0,0,0,.06);
+}
+
+.card a:active{
+  transform: translateY(1px);
+}
+
+/* 小螢幕留白更舒服 */
+@media (max-width:420px){
+  h1{ font-size:28px; }
+  .subtitle{ font-size:17px; }
 }
