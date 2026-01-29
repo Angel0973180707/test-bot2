@@ -1,14 +1,20 @@
-:root{
-  /* 陪伴主色群：低彩度、有溫度 */
-  --bg: #F6F7F5;         /* 霧白暖底 */
-  --paper: #FFFFFF;      /* 卡片白 */
-  --ink: #24312E;        /* 不刺眼的深墨 */
-  --muted: #5E6F6A;      /* 柔灰文字 */
+/* =========================================================
+   幸福智多星｜情緒配色分流
+   theme-warm  : 疲累/委屈/想哭 → 暖米色系（接住）
+   theme-steady: 焦躁/失控/衝突 → 穩定綠系（站穩）
+   theme-night : 深夜/孤單/低落 → 夜霧深色（不孤單）
+========================================================= */
 
-  --angel-green: #8FB9A8; /* 穩定莫蘭迪綠 */
-  --angel-green-d: #3F7F6B;
-  --angel-beige: #EFE6D8; /* 溫柔米色 */
-  --angel-pink:  #E7C1C6; /* 淡粉點綴 */
+:root{
+  --bg: #F6F7F5;     /* default */
+  --paper: #FFFFFF;
+  --ink: #24312E;
+  --muted: #5E6F6A;
+
+  --accent: #8FB9A8;       /* default green */
+  --accent-d: #3F7F6B;
+  --softA: #EFE6D8;        /* beige */
+  --softB: #E7C1C6;        /* pink hint */
 
   --shadow: 0 12px 28px rgba(0,0,0,.08);
   --shadow-soft: 0 8px 18px rgba(0,0,0,.06);
@@ -23,10 +29,42 @@ body{
   color: var(--ink);
 }
 
-/* ===== Top / Hero ===== */
-.top{
-  padding: 22px 16px 10px;
+/* ====== THEME: Warm (疲累/委屈) ====== */
+body.theme-warm{
+  --bg: #F7F3EE;
+  --ink: #2F2A27;
+  --muted:#6B5F58;
+  --accent:#C89B7B;
+  --accent-d:#9B6E54;
+  --softA:#F1E1D2;
+  --softB:#E9C7B9;
 }
+
+/* ====== THEME: Steady (焦躁/衝突) ====== */
+body.theme-steady{
+  --bg: #F6F7F5;
+  --ink:#24312E;
+  --muted:#5E6F6A;
+  --accent:#8FB9A8;
+  --accent-d:#3F7F6B;
+  --softA:#EFE6D8;
+  --softB:#E7C1C6;
+}
+
+/* ====== THEME: Night (深夜/低落) ====== */
+body.theme-night{
+  --bg:#141A1D;
+  --paper:#1B2327;
+  --ink:#EAF2F1;
+  --muted:#B9C6C3;
+  --accent:#8FB9A8;
+  --accent-d:#6AA892;
+  --softA:#223037;
+  --softB:#2B3A41;
+}
+
+/* ===== Top / Hero ===== */
+.top{ padding: 22px 16px 10px; }
 
 .hero{
   max-width: 780px;
@@ -34,27 +72,24 @@ body{
   padding: 22px 18px 18px;
   border-radius: 22px;
 
-  /* 不單調的關鍵：柔暖漸層 + 微光 */
   background:
-    radial-gradient(1200px 420px at 10% 0%, rgba(231,193,198,.35), transparent 55%),
-    radial-gradient(900px 380px at 90% 10%, rgba(143,185,168,.30), transparent 55%),
-    linear-gradient(180deg, rgba(239,230,216,.85), rgba(246,247,245,1));
+    radial-gradient(1200px 420px at 10% 0%, rgba(231,193,198,.25), transparent 55%),
+    radial-gradient(900px 380px at 90% 10%, rgba(143,185,168,.22), transparent 55%),
+    linear-gradient(180deg, rgba(239,230,216,.75), rgba(246,247,245,1));
   box-shadow: var(--shadow-soft);
 }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
+body.theme-night .hero{
+  background:
+    radial-gradient(900px 420px at 20% 0%, rgba(143,185,168,.18), transparent 55%),
+    radial-gradient(800px 420px at 90% 10%, rgba(255,255,255,.06), transparent 60%),
+    linear-gradient(180deg, rgba(34,48,55,.85), rgba(20,26,29,1));
 }
 
-.brain{ font-size: 26px; line-height:1; }
+.brand{ display:flex; align-items:center; gap:10px; }
+.brain{ font-size:26px; line-height:1; }
 
-h1{
-  margin:0;
-  font-size: 30px;
-  letter-spacing: .5px;
-}
+h1{ margin:0; font-size: 30px; letter-spacing:.5px; }
 
 .subtitle{
   margin: 14px 0 0;
@@ -68,16 +103,18 @@ h1{
   display:inline-block;
   padding: 10px 14px;
   border-radius: 16px;
-
-  /* 像被抱住：玻璃感 + 米色 */
   background: rgba(255,255,255,.55);
-  border: 1px solid rgba(255,255,255,.65);
+  border: 1px solid rgba(255,255,255,.55);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-
   font-size: 14px;
   line-height: 1.6;
   color: var(--muted);
+}
+
+body.theme-night .soft-note{
+  background: rgba(27,35,39,.55);
+  border: 1px solid rgba(255,255,255,.08);
 }
 
 /* ===== Main ===== */
@@ -96,6 +133,11 @@ main{
   box-shadow: var(--shadow-soft);
 }
 
+body.theme-night .input-card{
+  background: rgba(27,35,39,.88);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
 .label{
   display:block;
   font-size: 14px;
@@ -112,11 +154,17 @@ input{
   font-size: 16px;
   outline: none;
   box-shadow: 0 6px 16px rgba(0,0,0,.06);
+  color: var(--ink);
+}
+
+body.theme-night input{
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: none;
 }
 
 input:focus{
-  border-color: rgba(143,185,168,.65);
-  box-shadow: 0 0 0 4px rgba(143,185,168,.18), 0 8px 18px rgba(0,0,0,.06);
+  border-color: color-mix(in srgb, var(--accent) 70%, transparent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent), 0 8px 18px rgba(0,0,0,.06);
 }
 
 /* ===== Primary Button ===== */
@@ -128,90 +176,11 @@ input:focus{
   border-radius: 16px;
   color:#fff;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 800;
   cursor:pointer;
 
-  /* 不單調：漸層 + 光澤 */
-  background: linear-gradient(180deg, #9CC8B7 0%, var(--angel-green-d) 100%);
-  box-shadow: 0 12px 22px rgba(63,127,107,.26);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 70%, #ffffff) 0%, var(--accent-d) 100%);
+  box-shadow: 0 12px 22px color-mix(in srgb, var(--accent-d) 30%, transparent);
 }
 
-.primary:active{ transform: translateY(1px); }
-
-/* ===== Chips ===== */
-.chips{
-  display:flex;
-  flex-wrap:wrap;
-  gap: 10px;
-  margin-top: 14px;
-}
-
-.chip{
-  border:none;
-  cursor:pointer;
-  padding: 10px 12px;
-  border-radius: 999px;
-  font-size: 14px;
-  color: var(--angel-green-d);
-
-  /* 讓 chip 有生命：米色底 + 微陰影 */
-  background: linear-gradient(180deg, rgba(239,230,216,.95), rgba(255,255,255,.92));
-  box-shadow: 0 10px 18px rgba(0,0,0,.06);
-  border: 1px solid rgba(0,0,0,.04);
-}
-
-.chip:active{ transform: translateY(1px); }
-
-.hint{
-  margin: 12px 0 0;
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.65;
-}
-
-/* ===== Result Cards ===== */
-#result{ margin-top: 12px; }
-
-.card{
-  margin-top: 16px;
-  padding: 18px;
-  border-radius: 22px;
-  background: rgba(255,255,255,.80);
-  border: 1px solid rgba(0,0,0,.05);
-  box-shadow: var(--shadow-soft);
-}
-
-.card h3{
-  margin: 0 0 10px;
-  font-size: 18px;
-  color: var(--ink);
-}
-
-.card p{
-  margin: 0 0 10px;
-  line-height: 1.75;
-  color: var(--muted);
-}
-
-.card a{
-  display:inline-block;
-  margin-top: 8px;
-  padding: 11px 14px;
-  border-radius: 16px;
-  text-decoration:none;
-  font-weight: 700;
-
-  /* 工具按鈕也有層次 */
-  color: var(--angel-green-d);
-  background: linear-gradient(180deg, #ffffff 0%, rgba(239,230,216,.65) 100%);
-  box-shadow: 0 12px 22px rgba(0,0,0,.06);
-  border: 1px solid rgba(0,0,0,.04);
-}
-
-.card a:active{ transform: translateY(1px); }
-
-/* Mobile 微調 */
-@media (max-width: 420px){
-  h1{ font-size: 28px; }
-  .subtitle{ font-size: 17px; }
-}
+.primary:active{ transform: translateY(1
