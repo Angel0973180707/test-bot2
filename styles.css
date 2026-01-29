@@ -183,4 +183,87 @@ input:focus{
   box-shadow: 0 12px 22px color-mix(in srgb, var(--accent-d) 30%, transparent);
 }
 
-.primary:active{ transform: translateY(1
+.primary:active{ transform: translateY(1px); }
+
+/* ===== Chips ===== */
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.chip{
+  border:none;
+  cursor:pointer;
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  color: var(--accent-d);
+
+  background: linear-gradient(180deg, color-mix(in srgb, var(--softA) 85%, #ffffff) 0%, rgba(255,255,255,.92));
+  box-shadow: 0 10px 18px rgba(0,0,0,.06);
+  border: 1px solid rgba(0,0,0,.04);
+}
+
+body.theme-night .chip{
+  background: linear-gradient(180deg, rgba(34,48,55,.9) 0%, rgba(27,35,39,.95) 100%);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: none;
+  color: var(--ink);
+}
+
+.chip:active{ transform: translateY(1px); }
+
+.hint{
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ===== Result Cards ===== */
+.card{
+  margin-top: 16px;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(0,0,0,.05);
+  box-shadow: var(--shadow-soft);
+}
+
+body.theme-night .card{
+  background: rgba(27,35,39,.92);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: none;
+}
+
+.card h3{ margin: 0 0 10px; font-size: 18px; color: var(--ink); }
+.card p{ margin: 0 0 10px; line-height: 1.75; color: var(--muted); }
+
+.card a{
+  display:inline-block;
+  margin-top: 8px;
+  padding: 11px 14px;
+  border-radius: 16px;
+  text-decoration:none;
+  font-weight: 800;
+  color: var(--accent-d);
+  background: linear-gradient(180deg, #ffffff 0%, color-mix(in srgb, var(--softA) 55%, #ffffff) 100%);
+  box-shadow: 0 12px 22px rgba(0,0,0,.06);
+  border: 1px solid rgba(0,0,0,.04);
+}
+
+body.theme-night .card a{
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.10);
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.card a:active{ transform: translateY(1px); }
+
+@media (max-width: 420px){
+  h1{ font-size: 28px; }
+  .subtitle{ font-size: 17px; }
+}
