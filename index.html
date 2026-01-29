@@ -3,23 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>幸福智多星｜獨立版</title>
+  <title>幸福智多星</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <header class="top">
-    <h1>🧠 幸福智多星</h1>
-    <p>不知道怎麼辦的時候，先把話說完</p>
+    <div class="hero">
+      <h1>🧠 幸福智多星</h1>
+      <p class="subtitle">有時候，不是想不到方法<br>只是需要有人陪你想</p>
+    </div>
   </header>
 
   <main>
-    <input
-      id="userInput"
-      type="text"
-      placeholder="例如：我的孩子不專心"
-    />
-    <button id="searchBtn">陪我一起想想</button>
+    <div class="input-card">
+      <input
+        id="userInput"
+        type="text"
+        placeholder="把你現在最困擾的一句話打下來"
+      />
+      <button id="searchBtn">陪我一起想想</button>
+    </div>
 
     <section id="result"></section>
   </main>
