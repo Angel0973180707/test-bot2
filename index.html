@@ -6,7 +6,9 @@
   <title>幸福智多星</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+
+<!-- 🔸 主題會被 app.js 動態加上：theme-warm / theme-steady / theme-night -->
+<body class="theme-steady">
 
   <header class="top">
     <div class="hero">
@@ -56,17 +58,6 @@
   </main>
 
   <script src="app.js"></script>
-
-  <script>
-    // 快速句子 chips：點一下就填入輸入框（不影響 app.js 的 API/搜尋）
-    document.querySelectorAll(".chip").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const input = document.getElementById("userInput");
-        input.value = btn.dataset.q || "";
-        input.focus();
-      });
-    });
-  </script>
 
 </body>
 </html>
