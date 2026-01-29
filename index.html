@@ -2,53 +2,28 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>幸福智多星｜獨立測試版</title>
-  <meta name="description" content="幸福智多星（獨立測試版）：輸入困擾，得到安撫、腦科學理解與工具/影片推薦。" />
-  <link rel="stylesheet" href="./styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>幸福智多星｜獨立版</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <header class="header">
-    <div class="brand">
-      <div class="logo">🧠</div>
-      <div>
-        <h1>幸福智多星</h1>
-        <p class="sub">獨立測試版｜輸入困擾 → 安撫 → 理解 → 推薦</p>
-      </div>
-    </div>
 
-    <div class="status">
-      <span id="statusDot" class="dot"></span>
-      <span id="statusText">尚未載入資料</span>
-      <button id="btnReload" class="btn ghost" type="button">重新載入</button>
-    </div>
+  <header class="top">
+    <h1>🧠 幸福智多星</h1>
+    <p>不知道怎麼辦的時候，先把話說完</p>
   </header>
 
-  <main class="main">
-    <section class="card">
-      <h2>你現在最困擾的是什麼？</h2>
+  <main>
+    <input
+      id="userInput"
+      type="text"
+      placeholder="例如：我的孩子不專心"
+    />
+    <button id="searchBtn">陪我一起想想</button>
 
-      <div class="inputRow">
-        <input id="queryInput" type="text" placeholder="例如：孩子一直吼叫、我忍不住發火、每天都在吵…" autocomplete="off" />
-        <button id="btnAsk" class="btn primary" type="button">詢問</button>
-      </div>
-
-      <div class="hint">
-        <span>小提示：</span>輸入越口語越好（例如「我快爆炸了」「孩子一直尖叫」）。
-      </div>
-    </section>
-
-    <section id="resultArea" class="resultArea" aria-live="polite"></section>
-
-    <footer class="footer">
-      <div class="small">
-        本頁只做「讀取與匹配」，不會寫入任何資料。<br/>
-        若你想更準：把「智多星中控臺」A欄關鍵字用「、」或換行分開會更好命中。
-      </div>
-    </footer>
+    <section id="result"></section>
   </main>
 
-  <script src="./app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
