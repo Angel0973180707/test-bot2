@@ -10,24 +10,64 @@
 
   <header class="top">
     <div class="hero">
-      <h1>🧠 幸福智多星</h1>
-      <p class="subtitle">有時候，不是想不到方法<br>只是需要有人陪你想</p>
+      <div class="brand">
+        <span class="brain">🧠</span>
+        <h1>幸福智多星</h1>
+      </div>
+
+      <p class="subtitle">
+        有時候，不是想不到方法。<br>
+        只是需要有人陪你想。
+      </p>
+
+      <div class="soft-note">
+        不用想清楚再說。<br>
+        你現在想到的一句話，就可以。
+      </div>
     </div>
   </header>
 
   <main>
-    <div class="input-card">
+    <section class="input-card">
+      <label class="label" for="userInput">你想先從哪一句開始？</label>
+
       <input
         id="userInput"
         type="text"
-        placeholder="把你現在最困擾的一句話打下來"
+        placeholder="例如：我快撐不下去了｜孩子最近怎麼都不專心"
+        autocomplete="off"
       />
-      <button id="searchBtn">陪我一起想想</button>
-    </div>
+
+      <button id="searchBtn" class="primary">我在，陪你想想</button>
+
+      <div class="chips">
+        <button class="chip" type="button" data-q="我的孩子不專心">孩子不專心</button>
+        <button class="chip" type="button" data-q="我忍不住對孩子發火">忍不住發火</button>
+        <button class="chip" type="button" data-q="孩子愛尖叫">孩子愛尖叫</button>
+        <button class="chip" type="button" data-q="我真的很累">我真的很累</button>
+      </div>
+
+      <p class="hint">
+        小提醒：你也可以先點上面的句子，感受一下智多星怎麼陪你。
+      </p>
+    </section>
 
     <section id="result"></section>
   </main>
 
   <script src="app.js"></script>
+
+  <!-- 只加「陪伴用小互動」：不影響 app.js -->
+  <script>
+    // 快速句子 chips：點一下就幫你把話放進輸入框
+    document.querySelectorAll(".chip").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const input = document.getElementById("userInput");
+        input.value = btn.dataset.q || "";
+        input.focus();
+      });
+    });
+  </script>
+
 </body>
 </html>
