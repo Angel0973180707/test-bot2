@@ -1,47 +1,112 @@
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", sans-serif;
-  background: #8FB9A8;
-  margin: 0;
+:root {
+  --green-main: #8FB9A8;
+  --green-dark: #4f8f7a;
+  --green-soft: #eef5f2;
+  --card-bg: #f7faf9;
+  --text-main: #243330;
+  --text-soft: #5f6f6b;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", sans-serif;
+  background: var(--green-main);
+  color: var(--text-main);
+}
+
+/* ===== 頂部 ===== */
 .top {
-  padding: 24px;
+  padding: 32px 20px 28px;
   color: #fff;
 }
 
+.hero h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.subtitle {
+  margin-top: 10px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* ===== 主區 ===== */
 main {
   background: #fff;
-  border-radius: 24px 24px 0 0;
-  padding: 20px;
+  border-radius: 28px 28px 0 0;
+  padding: 24px 20px 40px;
   min-height: 80vh;
+}
+
+/* ===== 輸入卡 ===== */
+.input-card {
+  background: var(--green-soft);
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 24px;
 }
 
 input {
   width: 100%;
-  padding: 14px;
+  padding: 14px 16px;
   font-size: 16px;
-  border-radius: 12px;
-  border: 1px solid #ccc;
+  border-radius: 14px;
+  border: none;
+  outline: none;
+  margin-bottom: 12px;
 }
 
 button {
-  margin-top: 12px;
   width: 100%;
   padding: 14px;
   font-size: 16px;
-  border-radius: 12px;
+  border-radius: 14px;
   border: none;
-  background: #4f8f7a;
+  background: var(--green-dark);
   color: #fff;
+  cursor: pointer;
 }
 
+/* ===== 回應卡片 ===== */
 .card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 20px;
   margin-top: 18px;
-  padding: 18px;
-  border-radius: 16px;
-  background: #f6f8f7;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
 }
 
 .card h3 {
   margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.card p {
+  line-height: 1.7;
+  margin: 0 0 8px;
+  color: var(--text-soft);
+}
+
+/* ===== 工具按鈕 ===== */
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: #fff;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--green-dark);
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* ===== 找不到時 ===== */
+.card.soft {
+  background: #fff7f7;
 }
