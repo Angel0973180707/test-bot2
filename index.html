@@ -34,7 +34,7 @@
       <input
         id="userInput"
         type="text"
-        placeholder="例如：我快撐不下去了｜孩子最近怎麼都不專心"
+        placeholder="例如：我真的很累｜孩子最近怎麼都不專心"
         autocomplete="off"
       />
 
@@ -57,9 +57,8 @@
 
   <script src="app.js"></script>
 
-  <!-- 只加「陪伴用小互動」：不影響 app.js -->
   <script>
-    // 快速句子 chips：點一下就幫你把話放進輸入框
+    // 快速句子 chips：點一下就填入輸入框（不影響 app.js 的 API/搜尋）
     document.querySelectorAll(".chip").forEach(btn => {
       btn.addEventListener("click", () => {
         const input = document.getElementById("userInput");
